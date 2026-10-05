@@ -2,91 +2,108 @@
 
 ## ADDED Requirements
 
-### Requirement: Event-to-city spatial model
+### Requirement: OpenStreetMap event context
 
-The interactive demo SHALL depict an event venue connected through pedestrian routes and gates to surrounding public space and multiple transit stations.
+The interactive demo SHALL place illustrative event operations over recognizable Jakarta geography using OpenStreetMap data without requiring a paid API key.
 
-#### Scenario: Visitor views the default model
+#### Scenario: Visitor views the map
 
-- **WHEN** the demo first becomes visible
-- **THEN** it shows an event venue, multiple gates, crowd nodes, pedestrian routes, and at least two named transit stations
-- **AND** route direction and node density are distinguishable without relying on color alone
-- **AND** the interface identifies the data as simulated
+- **WHEN** the demo becomes visible with network access
+- **THEN** it loads an interactive Jakarta map with venue, gate, density, route, transit, and mobility overlays
+- **AND** OpenStreetMap contributor attribution remains visible
+- **AND** the interface identifies overlays as simulated rather than live operational data
 
-### Requirement: Scenario controls
+#### Scenario: Map tiles are unavailable
 
-The demo SHALL offer Normal Operations, Event Ending, Exit A Congestion, and Recommended Redistribution as mutually exclusive scenarios.
+- **WHEN** OpenStreetMap tiles cannot be loaded
+- **THEN** event controls and written current-state, prediction, and recommendation content remain available
+- **AND** the page does not represent the map as a live operational feed
 
-#### Scenario: Visitor selects Event Ending
+### Requirement: Jakarta event selection
 
-- **WHEN** the visitor selects “Event Ending”
-- **THEN** outbound flow increases across the relevant gates and transit routes
-- **AND** the status and recommendation content describes increased outbound demand
+The demo SHALL offer Jakarta Running Festival, a The Weeknd concert scenario at Jakarta International Stadium, and Pestapora as mutually exclusive event contexts.
 
-#### Scenario: Visitor selects Exit A Congestion
+#### Scenario: Visitor selects Jakarta Running Festival
 
-- **WHEN** the visitor selects “Exit A Congestion”
-- **THEN** Exit A visibly reaches a higher density state
-- **AND** the prediction states that critical load is projected in 12 minutes
-- **AND** the recommendation identifies a redistribution action
+- **WHEN** the visitor selects “Jakarta Running Festival”
+- **THEN** the map moves to the GBK and Sudirman area
+- **AND** it shows illustrative flow toward MRT Istora Mandiri, MRT Senayan, and Palmerah Station
+- **AND** the recommendation describes distributing modeled finish-area demand
 
-#### Scenario: Visitor selects Recommended Redistribution
+#### Scenario: Visitor selects The Weeknd concert
 
-- **WHEN** the visitor selects “Recommended Redistribution”
-- **THEN** the route from Exit C toward Station B becomes the recommended flow path
-- **AND** the recommendation says to redirect 25% of outbound traffic through Exit C toward Station B
-- **AND** the affected load indicators show the intended recovery direction
+- **WHEN** the visitor selects “The Weeknd concert”
+- **THEN** the map moves to Jakarta International Stadium
+- **AND** it shows illustrative rail alternatives and Kemayoran shuttle staging
+- **AND** the recommendation describes pulsed release and modeled demand redistribution
+
+#### Scenario: Visitor selects Pestapora
+
+- **WHEN** the visitor selects “Pestapora”
+- **THEN** the map moves to JIExpo and Gambir Expo
+- **AND** it shows illustrative bus, Rajawali rail, and ride-hail staging connections
+- **AND** the recommendation separates modeled pickup and transit demand
 
 ### Requirement: Coordinated operational response
 
-The demo SHALL update spatial state and written operational guidance as one coherent scenario change.
+The demo SHALL update map position, spatial overlays, event identity, metrics, alert, prediction, and recommendation as one coherent event change.
 
-#### Scenario: Scenario state changes
+#### Scenario: Selected event changes
 
-- **WHEN** a visitor selects a different scenario
-- **THEN** crowd density, active routes, movement direction, alerts, prediction, and recommendation update to the selected scenario
-- **AND** stale values from the previous scenario are not presented as current
+- **WHEN** a visitor selects a different event
+- **THEN** stale overlays and particles from the previous event are removed
+- **AND** the new venue, nodes, routes, densities, and written guidance are displayed
+
+### Requirement: Honest simulation boundaries
+
+The demo SHALL distinguish geographic context from local mock operational data.
+
+#### Scenario: Visitor reviews event values
+
+- **WHEN** crowd scale, routes, densities, predictions, or recommendations are displayed
+- **THEN** they are identified as illustrative model values
+- **AND** they are not presented as measured attendance, official event plans, current transit commitments, or customer outcomes
 
 ### Requirement: Accessible simulation state
 
-The demo SHALL provide keyboard and assistive-technology access to scenario selection and its resulting state.
+The demo SHALL provide keyboard and assistive-technology access to event selection and resulting state.
 
-#### Scenario: Keyboard visitor changes a scenario
+#### Scenario: Keyboard visitor changes an event
 
-- **WHEN** a keyboard visitor moves through and selects a scenario control
-- **THEN** the selected state is programmatically exposed
-- **AND** focus remains predictable
-- **AND** the updated scenario summary is announced without moving focus unexpectedly
+- **WHEN** a keyboard visitor uses arrow keys on the event radio group
+- **THEN** the selected event changes and remains programmatically exposed
+- **AND** focus remains on the selected event control
+- **AND** the updated operational summary is announced without moving focus unexpectedly
 
-#### Scenario: Visitor cannot perceive animation
+#### Scenario: Visitor requests reduced motion
 
-- **WHEN** a visitor reads the text summary or uses reduced motion
-- **THEN** they receive the same current condition, prediction, and recommendation conveyed by the animated visualization
+- **WHEN** a visitor has enabled reduced motion
+- **THEN** route lines, nodes, density overlays, and written recommendations remain visible
+- **AND** moving route particles and animated map travel are disabled
 
-### Requirement: Replaceable mock-data boundary
+### Requirement: Replaceable map and mock-data boundaries
 
-The demo SHALL consume typed domain contracts through a local mock service that can later be replaced by HTTP and WebSocket adapters.
+The demo SHALL keep OpenStreetMap style configuration and typed local event overlays replaceable for future production services.
 
 #### Scenario: Prototype operates locally
 
-- **GIVEN** no API server is available
-- **WHEN** the demo loads and scenarios are selected
-- **THEN** all required states are returned by local mock data
-- **AND** no paid map or data-provider key is required
+- **GIVEN** no spatial API server or paid map key is available
+- **WHEN** the demo loads
+- **THEN** local typed data supplies all event overlays and operational guidance
+- **AND** OpenStreetMap supplies map context over the network
 
-#### Scenario: Future adapter is introduced
+#### Scenario: Production traffic is planned
 
-- **GIVEN** an adapter implements the documented spatial-intelligence service contract
-- **WHEN** components consume that adapter
-- **THEN** visualization components do not require their display contract to be redesigned
+- **WHEN** the prototype is prepared for material production traffic
+- **THEN** documentation directs operators to configure a suitable OSM-compatible tile provider
+- **AND** contributor attribution is preserved
 
-### Requirement: Resilient visualization layout
+### Requirement: Resilient map layout
 
-The demo SHALL preserve useful spatial and operational information across supported viewport sizes.
+The demo SHALL preserve useful map and operational information across supported viewport sizes.
 
 #### Scenario: Demo appears on mobile
 
 - **WHEN** the available width is constrained
-- **THEN** the map remains legible or provides a purpose-designed simplified composition
-- **AND** scenario controls and recommendation text are not clipped
+- **THEN** the map, event controls, attribution, and recommendation text are not clipped
 - **AND** visitors do not need to horizontally scroll the whole page

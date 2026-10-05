@@ -41,7 +41,7 @@ Production form delivery is enabled only when both a secure HTTPS endpoint and p
 - `src/components`: navigation, brand mark, interactive digital twin, and inquiry form.
 - `src/config/site.ts`: public domains, contact details, and verified founding-team profiles.
 - `src/data/content.ts`: marketing content collections.
-- `src/data/mock-scenarios.ts`: all illustrative simulation data.
+- `src/data/mock-scenarios.ts`: illustrative event overlays for GBK, JIS, and JIExpo.
 - `src/services/mock-spatial-service.ts`: replaceable local data adapter.
 - `src/types/spatial.ts`: product-domain and integration contracts.
 
@@ -49,7 +49,9 @@ Most of the page is server-rendered. Client-side JavaScript is limited to mobile
 
 ## Mock Data Boundary
 
-The digital twin is a fictional operational model and visibly labels itself as simulated. Components consume typed scenario structures rather than embedding data into SVG presentation code.
+The digital twin uses OpenStreetMap tiles through MapLibre GL with local, illustrative overlays for Jakarta Running Festival, a The Weeknd concert scenario at JIS, and Pestapora at JIExpo. Venue coordinates provide geographic context; crowd values, routes, density, predictions, and recommendations are mock scenario data rather than measured event operations.
+
+OpenStreetMap attribution remains visible in the map. The prototype uses the public OpenStreetMap tile service for low-volume demonstration. A production deployment expecting material traffic should configure a suitable OSM-compatible tile provider while preserving contributor attribution.
 
 The local service is designed to be replaced by adapters for:
 
@@ -61,7 +63,7 @@ The local service is designed to be replaced by adapters for:
 - `POST /api/scenarios/simulate`
 - `WebSocket /ws/events/:eventId/live`
 
-No production spatial backend or paid map provider is included.
+No production spatial backend or paid map provider is included. The map requires network access to load OpenStreetMap tiles; all scenario overlays remain local.
 
 ## Domain Migration
 

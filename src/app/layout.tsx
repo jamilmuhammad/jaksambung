@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Archivo_Black, Plus_Jakarta_Sans } from "next/font/google";
 import { activeOrigin, siteConfig } from "@/config/site";
+import "maplibre-gl/dist/maplibre-gl.css";
 import "./globals.css";
 
 const display = Archivo_Black({

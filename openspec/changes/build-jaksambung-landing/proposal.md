@@ -14,7 +14,7 @@ JakSambung needs a clear, pitch-ready digital presence for Jakarta Startup Chall
 
 - Build a responsive single-page marketing site using Next.js, TypeScript, Tailwind CSS, and Framer Motion.
 - Cover the complete narrative from urban problem through platform, operations lifecycle, use cases, privacy, Jakarta-to-Berlin story, customers, and pilot conversion.
-- Build an interactive, locally simulated event digital twin with four selectable scenarios.
+- Build an interactive digital twin using OpenStreetMap context and three selectable Jakarta event scenarios: Jakarta Running Festival around GBK, a The Weeknd concert scenario at JIS, and Pestapora around JIExpo.
 - Add agency-inspired editorial composition, motion, scenario-study previews, a configurable team showcase, and a pilot contact form.
 - Add SEO and OpenGraph metadata, accessible semantics, reduced-motion behavior, and a README.
 - Add a first-party privacy notice at `/privacy` and link it from inquiry and footer surfaces.
@@ -50,7 +50,7 @@ The visualization is the page's main creative gesture and primary proof of conce
 ## Success Criteria
 
 - A first-time visitor can explain JakSambung as the connection between events, public space, transit, and city operations after viewing the hero and platform sections.
-- A visitor can switch all four simulation scenarios and see meaningful changes in flow, density, alerts, predictions, and recommendations.
+- A visitor can switch all three Jakarta event scenarios and see the map, routes, density, alerts, predictions, and recommendations update together.
 - Simulated content is visibly distinguishable from real deployments or performance evidence.
 - Decision-makers can identify applicable event types, operational phases, privacy posture, target customers, and a clear route to discuss a pilot.
 - The page is usable on mobile, with a keyboard, and with reduced-motion preferences.

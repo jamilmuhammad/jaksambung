@@ -7,7 +7,7 @@ context: |
   Audience: event organizers, venue operators, mobility operators, city authorities, investors, and smart-city partners
   Stack: Next.js, TypeScript, Tailwind CSS, Framer Motion
   Runtime: Node.js 20 or later
-  Data: local typed mock data for the initial prototype; no paid API keys
+  Data: OpenStreetMap context with local typed mock overlays; no paid API keys
   Current public URL: https://jaksambung.vercel.app
   Planned canonical URL: https://jaksambung.site
   Privacy notice path: /privacy
@@ -34,6 +34,7 @@ rules:
   design:
     - Prefer one memorable interactive spatial visualization over decorative motion throughout the page
     - Avoid generic SaaS card grids, stock photography, fabricated dashboards, and ungrounded city imagery
+    - Preserve OpenStreetMap contributor attribution and document tile-service production considerations
     - Document mock-data boundaries and future API replacement points
   tasks:
     - Include lint, type-check, production build, responsive review, keyboard review, and reduced-motion review

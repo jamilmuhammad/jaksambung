@@ -25,8 +25,8 @@
 ## 4. Interactive Digital Twin
 
 - [x] 4.1 Define typed spatial, route, recommendation, and scenario contracts.
-- [x] 4.2 Create a clearly isolated local mock adapter and data for all four required scenarios.
-- [x] 4.3 Build the responsive SVG city diagram with venue, gates, crowd nodes, pedestrian routes, and at least two transit stations.
+- [x] 4.2 Create a clearly isolated local mock adapter for Jakarta Running Festival, The Weeknd at JIS, and Pestapora.
+- [x] 4.3 Build the responsive OpenStreetMap view with event venues, gates, density nodes, pedestrian routes, mobility staging, and nearby transit.
 - [x] 4.4 Add flow particles, route direction, density indicators, legend, timestamp, and visible “Simulated” status.
 - [x] 4.5 Build accessible scenario controls and coordinate scene, metric, alert, and recommendation transitions.
 - [x] 4.6 Add equivalent textual state summaries and reduced-motion rendering.
@@ -56,3 +56,11 @@
 - [x] 7.6 Review keyboard navigation, focus order, headings, form errors, contrast, and non-color visualization cues.
 - [x] 7.7 Review reduced-motion behavior and ensure essential scenario information remains available.
 - [x] 7.8 Audit all public copy for fabricated partnerships, certifications, deployments, customer outcomes, team credentials, or ambiguous simulated data.
+
+## 8. Jakarta OpenStreetMap Scenarios
+
+- [x] 8.1 Integrate MapLibre GL with keyless OpenStreetMap raster tiles and visible contributor attribution.
+- [x] 8.2 Add geographically grounded event contexts for GBK/Sudirman, JIS, and JIExpo/Kemayoran.
+- [x] 8.3 Render local route, density, venue, transit, gate, and mobility overlays without representing them as live data.
+- [x] 8.4 Add animated route particles with static route visibility under reduced-motion preferences.
+- [x] 8.5 Document public tile limitations and the production tile-provider replacement boundary.

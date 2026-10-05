@@ -82,7 +82,7 @@ export default async function Home() {
           <SectionLead index="03">Interactive product simulation</SectionLead>
           <div className="simulation-heading">
             <div><span className="live-chip"><i /> System demonstration</span><h2>A city-scale event,<br />as a living system.</h2></div>
-            <p>Change the operating scenario. Watch movement, pressure, prediction, and action update together.</p>
+            <p>Select a Jakarta event context. Explore how venue egress connects to nearby streets, transit, and mobility staging.</p>
           </div>
           <DigitalTwin scenarios={scenarios} />
         </section>

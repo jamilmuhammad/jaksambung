@@ -105,32 +105,30 @@ Spend motion on the digital twin:
 
 ## Digital Twin Architecture
 
-Use lightweight SVG and CSS/Framer Motion rather than a map library for the first prototype. This avoids paid keys, reduces bundle cost, and enables a deliberately designed fictional city diagram. Keep geometry normalized with a `viewBox` so the same model scales across breakpoints.
+Use MapLibre GL with OpenStreetMap raster tiles to provide recognizable Jakarta geography without a paid API key. Keep all event routes, density values, crowd values, forecasts, and recommendations in the local mock adapter. OpenStreetMap provides geographic context only and must retain visible contributor attribution.
+
+The public OpenStreetMap tile service is suitable only for low-volume prototype demonstration. The data-service and map-style boundaries must allow a production OSM-compatible tile provider to replace it before material traffic.
 
 ### Domain Types
 
 ```ts
 type ScenarioId =
-  | "normal"
-  | "event-ending"
-  | "exit-a-congestion"
-  | "recommended-redistribution";
+  | "jakarta-running-festival"
+  | "the-weeknd-jis"
+  | "pestapora";
 
 interface SpatialPoint {
   id: string;
   label: string;
-  kind: "venue" | "gate" | "crowd" | "transit";
-  x: number;
-  y: number;
-  density?: "low" | "moderate" | "high" | "critical";
+  kind: "venue" | "gate" | "transit" | "mobility";
+  coordinate: [longitude: number, latitude: number];
+  density: "low" | "moderate" | "high" | "critical";
 }
 
 interface FlowRoute {
   id: string;
-  from: string;
-  to: string;
-  path: string;
-  direction: "inbound" | "outbound" | "redirected";
+  coordinates: [number, number][];
+  direction: "outbound" | "redirected";
   load: number;
 }
 
@@ -144,7 +142,8 @@ interface OperationalRecommendation {
 interface SimulationScenario {
   id: ScenarioId;
   label: string;
-  timestamp: string;
+  center: [number, number];
+  zoom: number;
   points: SpatialPoint[];
   routes: FlowRoute[];
   recommendation: OperationalRecommendation;
@@ -157,10 +156,9 @@ Store all mock scenarios under a clearly named data module such as `src/data/moc
 
 | Scenario | Spatial change | Operational message |
 | --- | --- | --- |
-| Normal Operations | Balanced gates and station loads | Continue monitoring; no intervention required |
-| Event Ending | Outbound volume rises on all exit routes | Stage outbound operations and monitor transit demand |
-| Exit A Congestion | Exit A and Station A escalate toward critical | Critical load projected in 12 minutes |
-| Recommended Redistribution | A redirected route activates via Exit C to Station B | Redirect 25% of outbound traffic and monitor recovery |
+| Jakarta Running Festival | GBK and Sudirman corridor with MRT and Palmerah alternatives | Distribute modeled finish-area flow across multiple transit approaches |
+| The Weeknd at JIS | Stadium egress connected to nearby rail and Kemayoran shuttle staging | Pulse release and distribute the modeled post-show surge |
+| Pestapora | JIExpo gate pressure connected to bus, Rajawali rail, and ride-hail staging | Separate pickup demand and redirect part of modeled flow toward rail feeders |
 
 The scenario timestamp and values must be described as simulated, not live.
 
@@ -201,7 +199,7 @@ No endpoint is implemented in this change. The README must identify the mock ada
 - `Hero`: core positioning and compact spatial preview.
 - `CitySystemChain`: event-to-city relationship.
 - `CapabilityIndex`: eight platform capabilities tied to spatial concepts.
-- `DigitalTwin`: SVG scene, scenario state, controls, legend, and status.
+- `DigitalTwin`: OpenStreetMap view, local spatial overlays, event state, controls, legend, attribution, and status.
 - `RecommendationPanel`: current state, prediction, and prescribed action.
 - `IntelligencePipeline`: Sense through Orchestrate.
 - `EventLifecycle`: before, during, and after.

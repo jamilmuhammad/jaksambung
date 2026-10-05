@@ -1,24 +1,22 @@
-export type ScenarioId =
-  | "normal"
-  | "event-ending"
-  | "exit-a-congestion"
-  | "recommended-redistribution";
+export type ScenarioId = "jakarta-running-festival" | "the-weeknd-jis" | "pestapora";
 
 export type Density = "low" | "moderate" | "high" | "critical";
+export type MapCoordinate = [longitude: number, latitude: number];
 
 export interface SpatialPoint {
   id: string;
   label: string;
-  kind: "venue" | "gate" | "crowd" | "transit";
-  x: number;
-  y: number;
-  density?: Density;
+  detail: string;
+  kind: "venue" | "gate" | "transit" | "mobility";
+  coordinate: MapCoordinate;
+  density: Density;
 }
 
 export interface FlowRoute {
   id: string;
-  path: string;
-  direction: "inbound" | "outbound" | "redirected";
+  label: string;
+  coordinates: MapCoordinate[];
+  direction: "outbound" | "redirected";
   load: number;
   active: boolean;
 }
@@ -33,8 +31,14 @@ export interface OperationalRecommendation {
 export interface SimulationScenario {
   id: ScenarioId;
   label: string;
+  shortLabel: string;
+  venue: string;
+  district: string;
   time: string;
   crowd: string;
+  transitSummary: string;
+  center: MapCoordinate;
+  zoom: number;
   points: SpatialPoint[];
   routes: FlowRoute[];
   recommendation: OperationalRecommendation;
