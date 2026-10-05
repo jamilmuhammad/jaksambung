@@ -41,8 +41,10 @@ interface AnimatedParticle {
 }
 
 function pointAlongRoute(coordinates: MapCoordinate[], progress: number): MapCoordinate {
-  const section = progress * (coordinates.length - 1);
-  const index = Math.min(Math.floor(section), coordinates.length - 2);
+  if (coordinates.length < 2) return coordinates[0] ?? [0, 0];
+  const normalizedProgress = Math.min(1, Math.max(0, progress));
+  const section = normalizedProgress * (coordinates.length - 1);
+  const index = Math.max(0, Math.min(Math.floor(section), coordinates.length - 2));
   const local = section - index;
   const start = coordinates[index];
   const end = coordinates[index + 1];
@@ -72,6 +74,7 @@ export function DigitalTwin({ scenarios }: { scenarios: SimulationScenario[] }) 
   useEffect(() => {
     if (!mapContainer.current || mapRef.current) return;
 
+    maplibregl.setWorkerUrl("/maplibre-gl-worker.mjs");
     const map = new maplibregl.Map({
       container: mapContainer.current,
       style: mapStyle,
@@ -202,7 +205,8 @@ export function DigitalTwin({ scenarios }: { scenarios: SimulationScenario[] }) 
       const started = performance.now();
       const animate = (now: number) => {
         particlesRef.current.forEach((particle) => {
-          const progress = ((now - started) * particle.speed + particle.offset) % 1;
+          const rawProgress = Math.max(0, now - started) * particle.speed + particle.offset;
+          const progress = ((rawProgress % 1) + 1) % 1;
           particle.marker.setLngLat(pointAlongRoute(particle.coordinates, progress));
         });
         animationRef.current = requestAnimationFrame(animate);

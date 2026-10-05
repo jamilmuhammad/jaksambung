@@ -23,6 +23,8 @@ npm run build
 npm start
 ```
 
+`npm install` runs a postinstall step that copies MapLibre's module worker and its shared module into `public/`. If dependencies were installed before the script existed, run `npm run prepare:map-worker` once. These generated modules are intentionally not committed.
+
 ## Environment
 
 Copy `.env.example` to `.env.local` when configuration is needed.

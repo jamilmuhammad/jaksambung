@@ -64,6 +64,9 @@
 - [x] 8.3 Render local route, density, venue, transit, gate, and mobility overlays without representing them as live data.
 - [x] 8.4 Add animated route particles with static route visibility under reduced-motion preferences.
 - [x] 8.5 Document public tile limitations and the production tile-provider replacement boundary.
+- [x] 8.6 Self-host the MapLibre worker and shared module with verified JavaScript MIME responses.
+- [x] 8.7 Prevent simulation decoration, marquees, and hidden form controls from creating document-level horizontal overflow.
+- [x] 8.8 Verify the production site in a headless browser with zero runtime exceptions and equal document scroll/client widths.
 
 ## 9. Event Operating Atlas
 

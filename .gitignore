@@ -6,3 +6,5 @@ out
 npm-debug.log*
 .vercel
 *.tsbuildinfo
+public/maplibre-gl-worker.mjs
+public/maplibre-gl-shared.mjs

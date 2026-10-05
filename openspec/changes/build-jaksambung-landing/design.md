@@ -109,6 +109,8 @@ Use MapLibre GL with OpenStreetMap raster tiles to provide recognizable Jakarta 
 
 The public OpenStreetMap tile service is suitable only for low-volume prototype demonstration. The data-service and map-style boundaries must allow a production OSM-compatible tile provider to replace it before material traffic.
 
+MapLibre 6 uses a module worker that imports its shared runtime module. A postinstall script copies both generated dependency files into `public/`, and the client configures `/maplibre-gl-worker.mjs` before map initialization. This prevents Next.js HTML fallbacks from being interpreted as worker modules and keeps worker MIME types explicit.
+
 ### Domain Types
 
 ```ts
