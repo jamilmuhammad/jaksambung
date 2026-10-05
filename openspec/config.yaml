@@ -1,0 +1,40 @@
+schema: spec-driven
+
+context: |
+  Product: JakSambung, an Event-to-City Spatial Intelligence Platform
+  Positioning: Spatial Intelligence for City-Scale Events
+  Tagline: From Crowd Flow to City Flow.
+  Audience: event organizers, venue operators, mobility operators, city authorities, investors, and smart-city partners
+  Stack: Next.js, TypeScript, Tailwind CSS, Framer Motion
+  Runtime: Node.js 20 or later
+  Data: local typed mock data for the initial prototype; no paid API keys
+  Current public URL: https://jaksambung.vercel.app
+  Planned canonical URL: https://jaksambung.site
+  Privacy notice path: /privacy
+  Founder contact: Muhammad Jamil, WhatsApp +62 812-1956-1519
+
+  Verified founding team:
+  - Muhammad Jamil: https://www.linkedin.com/in/jamilmuhammad/
+  - Muhammad Luthfi Arifin: https://www.linkedin.com/in/luthfiarifin/
+  - Tri Anggi Anggara Saputra: https://www.linkedin.com/in/trianggianggara/
+
+  Brand constraints:
+  - Present JakSambung as a spatial intelligence and city-operations product, not a CCTV or crowd-counting tool
+  - Use Jakarta as the origin and learning context while making the product relevant to cities globally
+  - Never imply an unconfirmed partnership, customer, certification, deployment, or measured outcome
+  - Do not invent team role titles, biographies, portraits, or credentials that have not been provided
+  - State privacy claims precisely: privacy-by-design principles, no facial recognition required, and aggregated anonymous spatial signals
+  - Treat agency-portfolio direction as a visual and editorial influence, not as JakSambung's business category
+
+rules:
+  specs:
+    - Express observable visitor behavior and outcomes
+    - Include responsive, accessibility, reduced-motion, and failure-state scenarios where relevant
+    - Separate verified claims from illustrative or simulated content
+  design:
+    - Prefer one memorable interactive spatial visualization over decorative motion throughout the page
+    - Avoid generic SaaS card grids, stock photography, fabricated dashboards, and ungrounded city imagery
+    - Document mock-data boundaries and future API replacement points
+  tasks:
+    - Include lint, type-check, production build, responsive review, keyboard review, and reduced-motion review
+    - Keep content and scenario data configurable rather than embedded across presentation components
