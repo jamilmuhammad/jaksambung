@@ -41,6 +41,7 @@ Production form delivery is enabled only when both a secure HTTPS endpoint and p
 - `src/components`: navigation, brand mark, interactive digital twin, and inquiry form.
 - `src/config/site.ts`: public domains, contact details, and verified founding-team profiles.
 - `src/data/content.ts`: marketing content collections.
+- `src/data/event-scenarios.ts`: running, concert, exhibition, and company event operating models.
 - `src/data/mock-scenarios.ts`: illustrative event overlays for GBK, JIS, and JIExpo.
 - `src/services/mock-spatial-service.ts`: replaceable local data adapter.
 - `src/types/spatial.ts`: product-domain and integration contracts.
@@ -50,6 +51,8 @@ Most of the page is server-rendered. Client-side JavaScript is limited to mobile
 ## Mock Data Boundary
 
 The digital twin uses OpenStreetMap tiles through MapLibre GL with local, illustrative overlays for Jakarta Running Festival, a The Weeknd concert scenario at JIS, and Pestapora at JIExpo. Venue coordinates provide geographic context; crowd values, routes, density, predictions, and recommendations are mock scenario data rather than measured event operations.
+
+The event operating atlas uses original animated SVG artwork and expandable cards. Its impact statements describe modeled product value, not customer results.
 
 OpenStreetMap attribution remains visible in the map. The prototype uses the public OpenStreetMap tile service for low-volume demonstration. A production deployment expecting material traffic should configure a suitable OSM-compatible tile provider while preserving contributor attribution.
 

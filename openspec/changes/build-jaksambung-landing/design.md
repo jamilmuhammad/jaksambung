@@ -85,7 +85,7 @@ MOBILE
 6. **Interactive visualization:** provide the complete digital-twin simulation and recommendation rail.
 7. **Pipeline:** present Sense → Understand → Predict → Orchestrate as a true ordered sequence.
 8. **Lifecycle:** explain before, during, and after-event value.
-9. **Scenario studies and use cases:** preview illustrative marathon, concert/stadium, festival, and convention operations. Label every preview as simulated.
+9. **Event operating atlas:** use expandable illustrated cards for running, concert, exhibition, and company events. Each card connects event examples to operational pressure, spatial signals, recommended action, and modeled impact.
 10. **Privacy:** connect principles to system boundaries and explain that facial recognition is not required.
 11. **Jakarta to Berlin:** tell the origin, validation, and global scaling narrative without partnership claims.
 12. **Customers and team:** identify buyer groups; present the three verified people as the “Founding team,” with names and LinkedIn links but no invented individual roles, biographies, or portraits.
@@ -203,7 +203,7 @@ No endpoint is implemented in this change. The README must identify the mock ada
 - `RecommendationPanel`: current state, prediction, and prescribed action.
 - `IntelligencePipeline`: Sense through Orchestrate.
 - `EventLifecycle`: before, during, and after.
-- `ScenarioStudies`: simulated case-study previews and use-case coverage.
+- `EventScenarioShowcase`: animated running, concert, exhibition, and company cards with one active expanded operating model.
 - `PrivacyArchitecture`: privacy principles and data handling capabilities.
 - `GlobalNarrative`: Jakarta, Berlin, and global city relevance.
 - `CustomerGroups`: target buyers and operational value.

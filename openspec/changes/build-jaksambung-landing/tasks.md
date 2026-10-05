@@ -64,3 +64,11 @@
 - [x] 8.3 Render local route, density, venue, transit, gate, and mobility overlays without representing them as live data.
 - [x] 8.4 Add animated route particles with static route visibility under reduced-motion preferences.
 - [x] 8.5 Document public tile limitations and the production tile-provider replacement boundary.
+
+## 9. Event Operating Atlas
+
+- [x] 9.1 Replace the equal scenario grid with one-active-card expansion on desktop and an accessible accordion layout on mobile.
+- [x] 9.2 Add original animated SVG assets for running, concert, exhibition, and company events.
+- [x] 9.3 Add event examples, pressure, spatial signals, orchestration, and modeled-impact content to every card.
+- [x] 9.4 Add scroll reveal, artwork mask transitions, active-card layout motion, and a restrained event marquee.
+- [x] 9.5 Disable looping and scrubbed motion under reduced-motion preferences.

@@ -66,6 +66,19 @@ The site SHALL use case-study-style previews to demonstrate product thinking whi
 - **THEN** it is labeled as simulated or illustrative
 - **AND** it does not show a customer logo, testimonial, measured impact, or deployment claim unless verified content is later configured
 
+#### Scenario: Visitor explores event operating models
+
+- **WHEN** a visitor selects running, concert, exhibition, or company events
+- **THEN** the selected card expands to show representative event formats, operational pressure, spatial signals, orchestration, and modeled impact
+- **AND** only one card is expanded at a time
+- **AND** impact language describes product potential rather than a measured customer result
+
+#### Scenario: Visitor explores event cards on mobile
+
+- **WHEN** the event atlas is rendered on a narrow viewport
+- **THEN** cards use a vertical accordion that does not depend on hover or pointer tracking
+- **AND** the selected card's content remains keyboard and touch accessible
+
 ### Requirement: Privacy-by-design communication
 
 The site SHALL communicate the product's privacy posture precisely and without claiming certification.

@@ -46,13 +46,6 @@ export const lifecycle = [
   },
 ] as const;
 
-export const useCases = [
-  ["01", "42K city marathon", "Finish-line dispersal across three gates and two rail stations."],
-  ["02", "Stadium concert", "Outbound surge forecasting as the final set approaches."],
-  ["03", "Waterfront festival", "Flow balancing between stages, public space, and temporary mobility nodes."],
-  ["04", "Convention district", "Arrival-wave coordination across halls, curb space, and urban transit."],
-] as const;
-
 export const customerGroups = [
   ["Event organizers", "Move from static safety plans to adaptive event operations."],
   ["Venue operators", "Understand how gate decisions affect the district outside the perimeter."],

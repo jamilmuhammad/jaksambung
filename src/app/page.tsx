@@ -1,9 +1,10 @@
 import { Arrow, BrandMark } from "@/components/brand-mark";
 import { DigitalTwin } from "@/components/digital-twin";
+import { EventScenarioShowcase } from "@/components/event-scenario-showcase";
 import { PilotForm } from "@/components/pilot-form";
 import { SiteHeader } from "@/components/site-header";
 import { siteConfig, pilotWhatsAppUrl } from "@/config/site";
-import { capabilities, customerGroups, lifecycle, pipeline, useCases } from "@/data/content";
+import { capabilities, customerGroups, lifecycle, pipeline } from "@/data/content";
 import { mockSpatialService } from "@/services/mock-spatial-service";
 
 function SectionLead({ index, children }: { index: string; children: React.ReactNode }) {
@@ -118,18 +119,9 @@ export default async function Home() {
         </section>
 
         <section className="scenarios-section section-pad">
-          <SectionLead index="06">Scenario studies</SectionLead>
-          <div className="scenario-heading"><h2>Built for density<br />in motion.</h2><p>Illustrative operating contexts, not customer deployments.</p></div>
-          <div className="scenario-studies">
-            {useCases.map(([number, title, description], index) => (
-              <article key={title}>
-                <div className={`scenario-graphic graphic-${index + 1}`} aria-hidden="true"><span>{number}</span><i /><i /><i /></div>
-                <div className="scenario-meta"><span>Simulated scenario</span><span>{number} / 04</span></div>
-                <h3>{title}</h3><p>{description}</p>
-              </article>
-            ))}
-          </div>
-          <p className="use-case-line">Running events / Concerts / Music festivals / Stadiums / Exhibitions / Cultural events / Public celebrations / Tourism districts</p>
+          <SectionLead index="06">Event operating atlas</SectionLead>
+          <div className="scenario-heading"><h2>Every event moves<br />differently.</h2><p>Select an event type to see the pressure JakSambung reads, the action it can orchestrate, and the modeled operational impact.</p></div>
+          <EventScenarioShowcase />
         </section>
 
         <section className="privacy-section section-pad" id="privacy">
